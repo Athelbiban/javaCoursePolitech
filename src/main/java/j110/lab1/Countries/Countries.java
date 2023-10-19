@@ -9,7 +9,9 @@ public class Countries {
 
     public static void main(String[] args) {
         Countries a = new Countries();
-        System.out.println(a.name);
+        System.out.println(a.getName());
+        a.setName("Stas");
+        System.out.println(a.getName());
     }
 
     // get-методы, возвращающие значения соответствующих атрибутов
