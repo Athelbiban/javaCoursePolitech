@@ -5,7 +5,7 @@ public class Countries {
     private int square;
     private int population;
     private String nameOfCapital;
-    private String populationInCapital;
+    private int populationInCapital;
 
     public static void main(String[] args) {
         Countries a = new Countries();
@@ -19,13 +19,12 @@ public class Countries {
     public int getSquare() { return square; }
     public int getPopulation() { return population; }
     public String getNameOfCapital() { return nameOfCapital; }
-    public String getPopulationInCapital() { return populationInCapital; }
+    public int getPopulationInCapital() { return populationInCapital; }
 
     // get-метод, возвращающий значение плотности населения страны
     // ???????????????????????????????????????????????????????????
 
     // set-методы, устанавливающие значения соответствующих атрибутов с проверкой значений
-
     public void setName(String name) {
         if (!name.isEmpty()) {
             this.name = name;
@@ -62,8 +61,14 @@ public class Countries {
             System.out.println("Заглушка для исключения setNameOfCapitalException");
         }
     }
-    public void setPopulationInCapital(String populationInCapital) {
-        this.populationInCapital = populationInCapital;
+    public void setPopulationInCapital(int populationInCapital) {
+        if (populationInCapital > 0) {
+            this.populationInCapital = populationInCapital;
+        }
+        else {
+            // и тут тоже должно выброситься исключение подходящего типа
+            System.out.println("Заглушка для исключения setPopulationInCapitalException");
+        }
     }
 
     // метод, задающий/сбрасывающий данные о столице
