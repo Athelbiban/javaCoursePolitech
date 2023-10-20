@@ -52,14 +52,10 @@ public class Countries {
 
     // метод проверяющий значения задаваемых данных
     private void dataVerification(String data) throws Exception {
-        if (data.isEmpty()) {
-            throw new Exception("Exception: string not be empty");
-        }
+        if (data.isEmpty()) throw new Exception("Exception: string not be empty");
     }
     private void dataVerification(double data) throws Exception {
-        if (data <= 0) {
-            throw new Exception("Exception: number must be > 0");
-        }
+        if (data <= 0) throw new Exception("Exception: number must be > 0");
     }
 
     // метод, задающий/сбрасывающий данные о столице
