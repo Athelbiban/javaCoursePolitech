@@ -6,14 +6,17 @@ public class Countries {
     private double population;
     private String nameOfCapital;
     private double populationInCapital;
+    // массив из нескольких стран
+    private static final String[] countriesArr = {
+            "Russia, 17,1 млн кв.км., 146,7 млн чел., Moscow, 12,6 млн чел.",
+            "Finland, 338 тыс. кв. км., 5,5 млн чел., Helsinki, 655 тыс. чел.",
+            "France, 643,8 тыс. кв. км., 67,8 млн чел., Paris, 2,1 млн чел.",
+            "Andorra, 467 кв. км., 85,4 тыс. чел., Andorra la Vella, 22,6 тыс. чел.",
+            "Singapore, 725 кв. км., 5,7 млн чел., -",
+    };
 
-    public static void main(String[] args) throws Exception {
-        Countries a = new Countries("Country A", 273.3, 5.2, "Capital A", 0.64);
-        System.out.println(a.getName());
-        System.out.println(a.getSquare());
-        a.setName("AnyCountry");
-        a.setSquare(4.2);
-        a.print();
+    public static void main(String[] args) {
+        printAll();
     }
 
     // get-методы, возвращающие значения соответствующих атрибутов
@@ -89,12 +92,10 @@ public class Countries {
         }
     }
 
-    // массив из нескольких стран
-//    Countries[][] countriesArr = new Countries[5][5];
-
     // метод printAll
     public static void printAll() {
-        // тут печать массива
+        for (String str : countriesArr) {
+            System.out.println(str);
+        }
     }
-
 }
