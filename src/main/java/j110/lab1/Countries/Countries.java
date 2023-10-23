@@ -42,7 +42,6 @@ public class Countries {
 
     // get-метод, возвращающий значение плотности населения страны
     public double getPopulationDensity() {
-        dataVerification(population);
         return population / square;
     }
 
@@ -109,10 +108,10 @@ public class Countries {
     // метод print
     public void print() {
         if (nameOfCapital == null && populationInCapital == 0 && population != 0) {
-            System.out.printf("Название: %s\nПлощадь: %f\nНаселение: %f\n", name, square, population);
+            System.out.printf("Страна: %s\nПлощадь: %f\nНаселение: %f\n", name, square, population);
         }
         else if (nameOfCapital == null && populationInCapital == 0 && population == 0) {
-            System.out.printf("Название: %s\nПлощадь: %f\n", name, square);
+            System.out.printf("Страна: %s\nПлощадь: %f\n", name, square);
         }
         else if (populationInCapital == 0 && population == 0) {
             System.out.printf("Страна: %s\nПлощадь: %f\nСтолица: %s\n",
