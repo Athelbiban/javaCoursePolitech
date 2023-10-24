@@ -6,31 +6,16 @@ public class Countries {
     private double population;
     private String nameOfCapital;
     private double populationInCapital;
-    // массив из нескольких стран
-    private static final String[] countriesArr = {
-            "Russia, 17,1 млн кв.км., 146,7 млн чел., Moscow, 12,6 млн чел.",
-            "Finland, 338 тыс. кв. км., 5,5 млн чел., Helsinki, 655 тыс. чел.",
-            "France, 643,8 тыс. кв. км., 67,8 млн чел., Paris, 2,1 млн чел.",
-            "Andorra, 467 кв. км., 85,4 тыс. чел., Andorra la Vella, 22,6 тыс. чел.",
-            "Singapore, 725 кв. км., 5,7 млн чел., -",
-    };
 
     public static void main(String[] args) {
-        Countries country1 = new Countries("Country1", 3.14, "Capital1");
-        Countries country2 = new Countries("Russia", 17.1e6, 146.7e6, "Moscow", 12.6e6);
-        Countries country3 = new Countries("Finland", 338e3, 5.5e6, "Helsinki", 655e3);
-        Countries country4 = new Countries("France", 643.8e3, 67.8e6, "Paris", 2.1e6);
-        Countries country5 = new Countries("Country2", 999.99);
+        Countries[] countriesArr = new Countries[5];
+        countriesArr[0] = new Countries("Russia", 17.1e6, 146.7e6, "Moscow", 12.6e6);
+        countriesArr[1] = new Countries("Finland", 338e3, 5.5e6, "Helsinki", 655e3);
+        countriesArr[2] = new Countries("France", 643.8e3, 67.8e6, "Paris", 2.1e6);
+        countriesArr[3] = new Countries("Andorra", 467e3, 85.4e3, "Andorra la Vella", 22.6e3);
+        countriesArr[4] = new Countries("Singapore", 725e3, 5.7e6);
 
-//        System.out.println(country5.getNameOfCapital());
-//        System.out.println(country2.getPopulationDensity());
-//        System.out.println(country1.getPopulationDensity());
-        country5.print();
-        country4.print();
-        country3.print();
-        country2.print();
-        country1.print();
-//        printAll();
+        printAll(countriesArr);
     }
 
     // get-методы, возвращающие значения соответствующих атрибутов
@@ -127,9 +112,10 @@ public class Countries {
     }
 
     // метод printAll
-    public static void printAll() {
-        for (String str : countriesArr) {
-            System.out.println(str);
+    public static void printAll(Countries[] countries) {
+        for (Countries country : countries) {
+            country.print();
+            System.out.println();
         }
     }
 }
