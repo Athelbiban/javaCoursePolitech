@@ -9,33 +9,6 @@ public class Book {
     private String[] authors;
     static Book[] booksArr = new Book[5];
 
-    public static void main(String[] args) {
-        Publisher publisher1 = new Publisher("Проспект", "Москва");
-        Publisher publisher2 = new Publisher("Питер", "Санкт-Петербург");
-        Publisher publisher3 = new Publisher("БХВ", "Санкт-Петебург");
-        Publisher publisher4 = new Publisher("Диалектика", "Киев");
-
-        String[] book1Authors = {"Седжвик Роберт", "Уэйн Кевин"};
-        String[] book2Authors = {"Вигерс Карл"};
-        String[] book3Authors = {"Шилдт Герберт"};
-        String[] book4Authors = {"Полубенцева М.И."};
-
-        Book book1 = new Book("Computer Science: основы программирования на Java," +
-                "ООП, алгоритмы и структуры данных", book1Authors, 2018, publisher2);
-        Book book2 = new Book("Разработка требований к программному обеспечению. 3-е издание, дополненное",
-                book2Authors, 2019, publisher3);
-        Book book3 = new Book("Полное руководство, 10-е издание", book3Authors, 2018, publisher4);
-        Book book4 = new Book("C/C++. Процедурное программирование", book4Authors, 2017, publisher3);
-        Book book5 = new Book("Конституция РФ", 2020, publisher1);
-        booksArr[0] = book1;
-        booksArr[1] = book2;
-        booksArr[2] = book3;
-        booksArr[3] = book4;
-        booksArr[4] = book5;
-
-        printAll();
-    }
-
     Book(String name, int year, Publisher publisher) {
         setName(name);
         setYear(year);
@@ -113,30 +86,34 @@ public class Book {
     }
 
     public static void printAll() {
+        if (booksArr[0] == null) {
+            Publisher publisher1 = new Publisher("Проспект", "Москва");
+            Publisher publisher2 = new Publisher("Питер", "Санкт-Петербург");
+            Publisher publisher3 = new Publisher("БХВ", "Санкт-Петебург");
+            Publisher publisher4 = new Publisher("Диалектика", "Киев");
+
+            String[] authorsArr1 = {"Седжвик Роберт", "Уэйн Кевин"};
+            String[] authorsArr2 = {"Вигерс Карл"};
+            String[] authorsArr3 = {"Шилдт Герберт"};
+            String[] authorsArr4 = {"Полубенцева М.И."};
+
+            Book book1 = new Book("Computer Science: основы программирования на Java," +
+                    "ООП, алгоритмы и структуры данных", authorsArr1, 2018, publisher2);
+            Book book2 = new Book("Разработка требований к программному обеспечению. 3-е издание, дополненное",
+                    authorsArr2, 2019, publisher3);
+            Book book3 = new Book("Полное руководство, 10-е издание", authorsArr3, 2018, publisher4);
+            Book book4 = new Book("C/C++. Процедурное программирование", authorsArr4, 2017, publisher3);
+            Book book5 = new Book("Конституция РФ", 2020, publisher1);
+
+            Book.booksArr[0] = book1;
+            Book.booksArr[1] = book2;
+            Book.booksArr[2] = book3;
+            Book.booksArr[3] = book4;
+            Book.booksArr[4] = book5;
+        }
+
         for (Book book : booksArr) {
             book.print();
         }
-    }
-}
-
-class Publisher {
-    private String name;
-    private String city;
-
-    public String getName() { return name; }
-    public String getCity() { return city; }
-
-    public void setName(String name) {
-        Book.dataVerification(name);
-        this.name = name;
-    }
-    public void setCity(String city) {
-        Book.dataVerification(city);
-        this.city = city;
-    }
-
-    Publisher(String name, String city) {
-        setName(name);
-        setCity(city);
     }
 }
