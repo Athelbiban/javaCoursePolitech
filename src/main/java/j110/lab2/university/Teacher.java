@@ -10,10 +10,7 @@ public class Teacher extends Person {
         this.degree = degree;
         this.speciality = speciality;
     }
-}
 
-enum Degree {
-    CANDIDATEOFSCIENCES,
-    DOCTOROFSCIENCES,
-    PHD
+    public String getDegree() { return degree.toString(); }
+    public String getSpeciality() { return speciality; }
 }

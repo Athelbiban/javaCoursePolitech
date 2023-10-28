@@ -1,6 +1,6 @@
 package j110.lab2.university;
 
-public class Person {
+abstract public class Person {
     private String name;
     private String surname;
     private Gender gender;
@@ -13,21 +13,31 @@ public class Person {
         this.department = department;
     }
 
-    public String getName() { return name; }
-    public String getSurname() { return surname; }
-    public Gender getGender() { return gender; }
-    public String getDepartment() { return department; }
-
     public void print() {
         String printName = name + " " + surname;
-        String verb = "teaches";
-        String pronoun = "he";
+        String verb = this instanceof Teacher ? "teaches" : "studies";
+        String pronoun = this.gender.getPronoun();
+        String pronounPrit = this.gender.getPronounPrit();
+
         System.out.printf("This is %s. %s %s at %s\n",
                 printName, pronoun, verb, department);
-    }
-}
 
-enum Gender {
-    MALE,
-    FEMALE
+        if (this instanceof Teacher) {
+            System.out.printf("%s has %s degree in %s.\n\n",
+                    pronoun,
+                    ((Teacher) this).getDegree(),
+                    ((Teacher) this).getSpeciality());
+        }
+        else if (this instanceof Student) {
+            System.out.printf("%s is %s'th year %s student.\n\n",
+                    pronoun,
+                    ((Student) this).getCourseNumber(),
+                    ((Student) this).getStage());
+        }
+        else {
+            System.out.printf("%s thesis title is \"%s\"\n\n",
+                    pronounPrit,
+                    ((GraduateStudent) this).getThesisTitle());
+        }
+    }
 }
