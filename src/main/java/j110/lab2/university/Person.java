@@ -40,4 +40,14 @@ abstract public class Person {
                     ((GraduateStudent) this).getThesisTitle());
         }
     }
+
+    public static void printAll(Person[] persons) {
+        if (persons[0] == null) {
+            System.out.println("Передан пустой массив");
+        } else {
+            for (Person person : persons) {
+                person.print();
+            }
+        }
+    }
 }

@@ -2,28 +2,23 @@ package j110.lab2.university;
 
 public class Main {
     public static void main(String[] args) {
-        Bachelor bachelor1 = new Bachelor(
-                "Ivan", "Ivanov", Gender.M,
-                "Computer science", CourseNumber.I);
+        Person[] personArr1 = new Person[6];
+        personArr1[0] = new Teacher("Ronald", "Turner",
+                Gender.M, "Computer science", Degree.PHD,
+                "Programming paradigms");
+        personArr1[1] = new Teacher("Ruth", "Hollings",
+                Gender.F, "Jurisprudence", Degree.MSC,
+                "Domestic arbitration");
+        personArr1[2] = new Bachelor("Leo", "Wilkinson",
+                Gender.M, "Computer science", CourseNumber.III);
+        personArr1[3] = new Bachelor("Anna", "Cunningham",
+                Gender.F, "World economy", CourseNumber.I);
+        personArr1[4] = new Master("Jill", "Lundqvist",
+                Gender.F, "Jurisprudence", CourseNumber.I);
+        personArr1[5] = new GraduateStudent("Ronald", "Correa",
+                Gender.M, "Computer science",
+                "Design of a functional programming language.");
 
-        Teacher teacher1 = new Teacher(
-                "Maria", "Petrova", Gender.F,
-                "Jurisprudence", Degree.DSC, "Domestic arbitration"
-        );
-
-        GraduateStudent graduateStudent1 = new GraduateStudent(
-                "Alexandr", "Pushkin", Gender.M,
-                "World economy",
-                "Word economy - it's very interesting"
-        );
-
-        Master master1 = new Master(
-                "Elena", "Sidorova", Gender.F,
-                "Computer science", CourseNumber.IV);
-
-        bachelor1.print();
-        teacher1.print();
-        graduateStudent1.print();
-        master1.print();
+        Person.printAll(personArr1);
     }
 }
