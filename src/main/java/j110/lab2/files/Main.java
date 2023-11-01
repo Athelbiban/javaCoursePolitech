@@ -12,6 +12,7 @@ public class Main {
         System.out.println(imageSize1.getLength());
 
         System.out.println(image1.getHeight());
-        System.out.println(image1.setHeight(500));
+        image1.setHeight(500);
+        System.out.println(image1.getHeight());
     }
 }

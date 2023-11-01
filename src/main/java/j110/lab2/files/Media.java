@@ -1,5 +1,7 @@
 package j110.lab2.files;
 
+import j110.lab1.Books.Book;
+
 public class Media extends File {
     private String format;
     private String description;
@@ -17,7 +19,16 @@ public class Media extends File {
     public String getDescription() { return description; }
     public String getDuration() { return duration; }
 
-    public void setFormat(String format) { this.format = format; }
-    public void setDescription(String description) { this.description = description; }
-    public void setDuration(String duration) { this.duration = duration; }
+    public void setFormat(String format) {
+        Book.dataVerification(format);
+        this.format = format;
+    }
+    public void setDescription(String description) {
+        Book.dataVerification(description);
+        this.description = description;
+    }
+    public void setDuration(String duration) {
+        Book.dataVerification(duration);
+        this.duration = duration;
+    }
 }

@@ -19,5 +19,5 @@ public class Image extends File {
     public void setFormat(String format) { this.format = format; }
     public void setImageSize(ImageSize imageSize) { this.imageSize = imageSize; }
     public void setLength(int length) { this.imageSize.setLength(length);}
-    public void setHeight(int height) { this.imageSize.setHeight(height);}
+    public void setHeight(int height) { imageSize.setHeight(height);}
 }

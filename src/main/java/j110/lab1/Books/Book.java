@@ -73,6 +73,10 @@ public class Book {
             throw new IllegalArgumentException("IllegalArgumentException: One of the attributes is an empty references");
         }
     }
+    // метод для j110/lab2/files/File.setSize()
+    public static void dataVerification(long data) {
+        if (data < 0) throw new IllegalArgumentException("IllegalArgumentException: number must be > 0");
+    }
 
     public void print() {
         System.out.printf("Название: %s\n", name);

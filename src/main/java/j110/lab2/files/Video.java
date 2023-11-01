@@ -1,5 +1,7 @@
 package j110.lab2.files;
 
+import j110.lab1.Books.Book;
+
 public class Video extends Media {
     private String pictureSize;
 
@@ -11,5 +13,8 @@ public class Video extends Media {
 
     public String getPictureSize() { return pictureSize; }
 
-    public void setPictureSize(String pictureSize) { this.pictureSize = pictureSize; }
+    public void setPictureSize(String pictureSize) {
+        Book.dataVerification(pictureSize);
+        this.pictureSize = pictureSize;
+    }
 }
