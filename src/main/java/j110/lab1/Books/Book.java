@@ -52,13 +52,13 @@ public class Book {
         this.authors = authors;
     }
 
-    static void dataVerification(String data) {
+    public static void dataVerification(String data) {
         if (data.isEmpty()) throw new IllegalArgumentException("IllegalArgumentException: string not be empty");
     }
-    static void dataVerification(int data) {
+    public static void dataVerification(int data) {
         if (data <= 0) throw new IllegalArgumentException("IllegalArgumentException: number must be > 0");
     }
-    static void dataVerification(String[] data) {
+    public static void dataVerification(String[] data) {
         if (data.length != 0) {
             for (String str : data) {
                 dataVerification(str);
@@ -68,7 +68,7 @@ public class Book {
             throw new IllegalArgumentException("IllegalArgumentException: array must not be empty");
         }
     }
-    static void dataVerification(Publisher publisher) {
+    public static void dataVerification(Publisher publisher) {
         if (publisher.getName() == null || publisher.getCity() == null) {
             throw new IllegalArgumentException("IllegalArgumentException: One of the attributes is an empty references");
         }
