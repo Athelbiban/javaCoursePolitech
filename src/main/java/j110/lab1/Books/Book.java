@@ -7,7 +7,6 @@ public class Book {
     private Publisher publisher;
     private int year;
     private String[] authors;
-    static Book[] booksArr = new Book[5];
 
     Book(String name, int year, Publisher publisher) {
         setName(name);
@@ -15,17 +14,13 @@ public class Book {
         setPublisher(publisher);
     }
     Book(String name, String author, int year, Publisher publisher) {
-        setName(name);
+        this(name, year, publisher);
         String[] tempAuthors = {author};
         setAuthors(tempAuthors);
-        setYear(year);
-        setPublisher(publisher);
     }
     Book(String name, String[] authors, int year, Publisher publisher) {
-       setName(name);
-       setAuthors(authors);
-       setYear(year);
-       setPublisher(publisher);
+        this(name, year, publisher);
+        setAuthors(authors);
     }
 
     public String getName() { return name; }
@@ -53,13 +48,13 @@ public class Book {
     }
 
     public static void dataVerification(String data) {
-        if (data.isEmpty()) throw new IllegalArgumentException("IllegalArgumentException: string not be empty");
+        if (data == null || data.isEmpty()) throw new IllegalArgumentException("IllegalArgumentException: string not be empty");
     }
     public static void dataVerification(int data) {
         if (data <= 0) throw new IllegalArgumentException("IllegalArgumentException: number must be > 0");
     }
     public static void dataVerification(String[] data) {
-        if (data.length != 0) {
+        if (data != null && data.length != 0) {
             for (String str : data) {
                 dataVerification(str);
             }
@@ -69,8 +64,13 @@ public class Book {
         }
     }
     public static void dataVerification(Publisher publisher) {
-        if (publisher.getName() == null || publisher.getCity() == null) {
+        if (publisher == null || publisher.getName() == null || publisher.getCity() == null) {
             throw new IllegalArgumentException("IllegalArgumentException: One of the attributes is an empty references");
+        }
+    }
+    public static void dataVerification(Object[] data) {
+        if (data == null || data.length == 0) {
+            throw new IllegalArgumentException("IllegalArgumentException: array must not be empty");
         }
     }
     // метод для j110/lab2/files/File.setSize()
@@ -89,33 +89,8 @@ public class Book {
         System.out.printf("Издательство: %s %s\n\n", publisher.getName(), publisher.getCity());
     }
 
-    public static void printAll() {
-        if (booksArr[0] == null) {
-            Publisher publisher1 = new Publisher("Проспект", "Москва");
-            Publisher publisher2 = new Publisher("Питер", "Санкт-Петербург");
-            Publisher publisher3 = new Publisher("БХВ", "Санкт-Петебург");
-            Publisher publisher4 = new Publisher("Диалектика", "Киев");
-
-            String[] authorsArr1 = {"Седжвик Роберт", "Уэйн Кевин"};
-            String[] authorsArr2 = {"Вигерс Карл"};
-            String[] authorsArr3 = {"Шилдт Герберт"};
-            String[] authorsArr4 = {"Полубенцева М.И."};
-
-            Book book1 = new Book("Computer Science: основы программирования на Java," +
-                    "ООП, алгоритмы и структуры данных", authorsArr1, 2018, publisher2);
-            Book book2 = new Book("Разработка требований к программному обеспечению. 3-е издание, дополненное",
-                    authorsArr2, 2019, publisher3);
-            Book book3 = new Book("Полное руководство, 10-е издание", authorsArr3, 2018, publisher4);
-            Book book4 = new Book("C/C++. Процедурное программирование", authorsArr4, 2017, publisher3);
-            Book book5 = new Book("Конституция РФ", 2020, publisher1);
-
-            Book.booksArr[0] = book1;
-            Book.booksArr[1] = book2;
-            Book.booksArr[2] = book3;
-            Book.booksArr[3] = book4;
-            Book.booksArr[4] = book5;
-        }
-
+    public static void printAll(Book[] booksArr) {
+        dataVerification(booksArr);
         for (Book book : booksArr) {
             book.print();
         }

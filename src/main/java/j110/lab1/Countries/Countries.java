@@ -53,11 +53,16 @@ public class Countries {
     }
 
     // метод проверяющий значения задаваемых данных
-    private void dataVerification(String data) {
-        if (data.isEmpty()) throw new IllegalArgumentException("IllegalArgumentException: string not be empty");
+    private static void dataVerification(String data) {
+        if (data == null || data.isEmpty()) throw new IllegalArgumentException("IllegalArgumentException: string not be empty");
     }
-    private void dataVerification(double data) {
+    private static void dataVerification(double data) {
         if (data <= 0) throw new IllegalArgumentException("IllegalArgumentException: number must be > 0");
+    }
+    private static void dataVerification(Countries[] countries) {
+        if (countries == null || countries[0] == null) {
+            throw new IllegalArgumentException("IllegalArgumentException: array must not be empty");
+        }
     }
 
     // метод, задающий/сбрасывающий данные о столице
@@ -67,27 +72,23 @@ public class Countries {
     }
 
     // конструкторы инициализирующие экземпляр объекта
-    Countries(String name, double square, double population,
-              String nameOfCapital, double populationInCapital) {
-        setName(name);
-        setSquare(square);
-        setPopulation(population);
-        setNameOfCapital(nameOfCapital);
-        setPopulationInCapital(populationInCapital);
-    }
-    Countries(String name, double square, double population) {
-        setName(name);
-        setSquare(square);
-        setPopulation(population);
-    }
-    Countries(String name, double square, String nameOfCapital) {
-        setName(name);
-        setSquare(square);
-        setNameOfCapital(nameOfCapital);
-    }
     Countries(String name, double square) {
         setName(name);
         setSquare(square);
+    }
+    Countries(String name, double square, String nameOfCapital) {
+        this(name, square);
+        setNameOfCapital(nameOfCapital);
+    }
+    Countries(String name, double square, double population) {
+        this(name, square);
+        setPopulation(population);
+    }
+    Countries(String name, double square, double population,
+              String nameOfCapital, double populationInCapital) {
+        this(name, square, population);
+        setNameOfCapital(nameOfCapital);
+        setPopulationInCapital(populationInCapital);
     }
 
     // метод print
@@ -113,6 +114,7 @@ public class Countries {
 
     // метод printAll
     public static void printAll(Countries[] countries) {
+        dataVerification(countries);
         for (Countries country : countries) {
             country.print();
             System.out.println();
