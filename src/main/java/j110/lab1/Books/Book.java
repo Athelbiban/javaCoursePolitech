@@ -48,10 +48,16 @@ public class Book {
     }
 
     public static void dataVerification(String data) {
-        if (data == null || data.isEmpty()) throw new IllegalArgumentException("IllegalArgumentException: string not be empty");
+        if (data == null || data.isEmpty())
+            throw new IllegalArgumentException("IllegalArgumentException: string not be empty");
     }
     public static void dataVerification(int data) {
         if (data <= 0) throw new IllegalArgumentException("IllegalArgumentException: number must be > 0");
+    }
+    public static void dataVerification(Object[] data) {
+        if (data == null || data.length == 0) {
+            throw new IllegalArgumentException("IllegalArgumentException: array must not be empty");
+        }
     }
     public static void dataVerification(String[] data) {
         if (data != null && data.length != 0) {
@@ -60,17 +66,13 @@ public class Book {
             }
         }
         else {
-            throw new IllegalArgumentException("IllegalArgumentException: array must not be empty");
+            throw new IllegalArgumentException(
+                    "IllegalArgumentException: array or the string in the array must not be empty");
         }
     }
     public static void dataVerification(Publisher publisher) {
         if (publisher == null || publisher.getName() == null || publisher.getCity() == null) {
             throw new IllegalArgumentException("IllegalArgumentException: One of the attributes is an empty references");
-        }
-    }
-    public static void dataVerification(Object[] data) {
-        if (data == null || data.length == 0) {
-            throw new IllegalArgumentException("IllegalArgumentException: array must not be empty");
         }
     }
     // метод для j110/lab2/files/File.setSize()
