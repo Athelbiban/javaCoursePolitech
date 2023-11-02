@@ -13,4 +13,14 @@ public class Teacher extends Person {
 
     public String getDegree() { return degree.toString(); }
     public String getSpeciality() { return speciality; }
+
+
+    @Override
+    public void print() {
+        super.print();
+        System.out.printf("%s has %s degree in %s.\n\n",
+                gender.getPronoun(),
+                getDegree(),
+                getSpeciality());
+    }
 }

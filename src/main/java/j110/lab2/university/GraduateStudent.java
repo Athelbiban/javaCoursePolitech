@@ -13,4 +13,12 @@ public class GraduateStudent extends Person {
     }
 
     public String getThesisTitle() { return thesisTitle; }
+
+    @Override
+    public void print() {
+        super.print();
+        System.out.printf("%s thesis title is \"%s\"\n\n",
+                gender.getPronounPrit(),
+                getThesisTitle());
+    }
 }

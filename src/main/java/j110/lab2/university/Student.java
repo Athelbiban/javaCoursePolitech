@@ -11,6 +11,15 @@ abstract public class Student extends Person {
         this.courseNumber = courseNumber;
     }
 
+    @Override
+    public void print() {
+        super.print();
+        System.out.printf("%s is %s'th year %s student.\n\n",
+                gender.getPronoun(),
+                getCourseNumber(),
+                getStage());
+    }
+
     public String getStage() { return stage.toString(); }
     public String getCourseNumber() { return courseNumber.toString(); }
 }

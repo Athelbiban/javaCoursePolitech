@@ -2,6 +2,7 @@ package j110.lab2.university;
 
 public class Main {
     public static void main(String[] args) {
+
         Person[] personArr1 = new Person[6];
         personArr1[0] = new Teacher("Ronald", "Turner",
                 Gender.M, "Computer science", Degree.PHD,
