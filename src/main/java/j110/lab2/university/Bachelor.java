@@ -6,9 +6,4 @@ public class Bachelor extends Student {
         super(name, surname, gender, department,
                 courseNumber, Stage.BACHELOR);
     }
-
-    @Override
-    public void print() {
-        super.print();
-    }
 }

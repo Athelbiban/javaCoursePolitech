@@ -15,34 +15,6 @@ abstract public class Person {
         this.department = department;
     }
 
-//    public void print() {
-//        String printName = name + " " + surname;
-//        String verb = this instanceof Teacher ? "teaches" : "studies";
-//        String pronoun = this.gender.getPronoun();
-//        String pronounPrit = this.gender.getPronounPrit();
-//
-//        System.out.printf("This is %s. %s %s at %s\n",
-//                printName, pronoun, verb, department);
-//
-//        if (this instanceof Teacher) {
-//            System.out.printf("%s has %s degree in %s.\n\n",
-//                    pronoun,
-//                    ((Teacher) this).getDegree(),
-//                    ((Teacher) this).getSpeciality());
-//        }
-//        else if (this instanceof Student) {
-//            System.out.printf("%s is %s'th year %s student.\n\n",
-//                    pronoun,
-//                    ((Student) this).getCourseNumber(),
-//                    ((Student) this).getStage());
-//        }
-//        else {
-//            System.out.printf("%s thesis title is \"%s\"\n\n",
-//                    pronounPrit,
-//                    ((GraduateStudent) this).getThesisTitle());
-//        }
-//    }
-
     public void print() {
         System.out.printf("This is %s. %s %s at %s\n",
                 name + " " + surname,
